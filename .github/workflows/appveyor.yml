@@ -4,15 +4,11 @@ stack: jdk 11
 
 branches:
   only:
-    - master
-
-build: off
+    - main
 
 install:
-
   - java -jar ./artifacts/app-card-delivery.jar &
-  - chmod +x gradlew
 
 build_script:
-  - ./gradlew test --info "-Dselenide.headless=true"
---info
+  - chmod +x gradlew
+  - ./gradlew test -Dselenide.headless=true --info
